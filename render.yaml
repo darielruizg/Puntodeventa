@@ -1,9 +1,7 @@
-services:
-  - type: web
-    name: pos-pwa
-    env: static
+staticSites:
+  - name: pos-pwa
     buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
+    publishPath: dist
     routes:
       - type: rewrite
         source: /*
