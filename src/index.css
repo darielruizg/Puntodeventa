@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #F9F5F2;
+  --color-demon-red: #E22B2B;
+  --color-dark-red: #761512;
+  --color-dark-gray: #333333;
+
+  --font-sans: "Noto Sans", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-heading: "Playfair Display", serif;
+  --font-subheading: "Raleway", sans-serif;
+}
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-dark-gray font-sans;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading text-dark-red;
+  }
+}
+
+@media print {
+  @page {
+    margin: 0;
+    size: 55mm auto;
+    /* Attempt to set width and continuous height */
+  }
+
+  /* Hide everything by default */
+  body>* {
+    display: none !important;
+  }
+
+  /* But show the print container if it exists at root */
+  body>.print-only {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Also support the Tailwind way if we structure it right */
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .print\:block {
+    display: block !important;
+  }
+}
